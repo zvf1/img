@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>AVIF Gallery</title>
+  <style>
+    body { font-family: sans-serif; background: #111; color: #eee; padding: 20px; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 16px; }
+    .item { background: #222; border-radius: 8px; padding: 8px; text-align: center; }
+    .item img { max-width: 100%; border-radius: 4px; }
+    .item p { font-size: 12px; word-break: break-all; margin: 6px 0 0; }
+  </style>
+</head>
+<body>
+  <h1>AVIF Gallery</h1>
+  <div class="grid" id="gallery">Loading...</div>
+
+  <script>
+    const owner = "zvf1";
+    const repo = "img";
+    const path = "avif";
+
+    fetch(`https://api.github.com/repos/${owner}/${repo}/contents/${path}`)
+      .then(res => res.json())
+      .then(files => {
+        const gallery = document.getElementById("gallery");
+        gallery.innerHTML = "";
+        files
+          .filter(f => f.name.toLowerCase().endsWith(".avif"))
+          .forEach(f => {
+            const div = document.createElement("div");
+            div.className = "item";
+            div.innerHTML = `
+              <img src="https://zvf1.github.io/img/avif/${f.name}" loading="lazy">
+              <p>${f.name}</p>
+            `;
+            gallery.appendChild(div);
+          });
+      });
+  </script>
+</body>
+</html>
