@@ -9,6 +9,7 @@
     .item { background: #222; border-radius: 8px; padding: 8px; text-align: center; }
     .item img { max-width: 100%; border-radius: 4px; }
     .item p { font-size: 12px; word-break: break-all; margin: 6px 0 0; }
+    .item .size { font-size: 11px; color: #999; margin-top: 2px; }
   </style>
 </head>
 <body>
@@ -19,6 +20,12 @@
     const owner = "zvf1";
     const repo = "img";
     const path = "avif";
+
+    function formatSize(bytes) {
+      if (bytes < 1024) return bytes + " B";
+      if (bytes < 1024 * 1024) return (bytes / 1024).toFixed(2) + " KB";
+      return (bytes / (1024 * 1024)).toFixed(2) + " MB";
+    }
 
     fetch(`https://api.github.com/repos/${owner}/${repo}/contents/${path}`)
       .then(res => res.json())
@@ -33,6 +40,7 @@
             div.innerHTML = `
               <img src="https://zvf1.github.io/img/avif/${f.name}" loading="lazy">
               <p>${f.name}</p>
+              <p class="size">${formatSize(f.size)}</p>
             `;
             gallery.appendChild(div);
           });
