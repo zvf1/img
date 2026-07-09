@@ -2,18 +2,25 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <title>AVIF Gallery</title>
+  <title>lz4 Gallery</title>
   <style>
     html, body {
       margin: 0;
       padding: 0;
-      background: #000;
+      min-height: 100%;
       color: #ccc;
       font-family: Verdana, Arial, sans-serif;
       font-size: 12px;
     }
+    body {
+      background-image: url("https://zvf1.github.io/img/bg.avif");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+    }
     .topbar {
-      background: #111;
+      background: rgba(17, 17, 17, 0.85);
       border-bottom: 2px solid #333;
       padding: 8px 12px;
       font-size: 13px;
@@ -23,9 +30,10 @@
     .container {
       max-width: 1000px;
       margin: 16px auto;
-      background: #0a0a0a;
+      background: rgba(10, 10, 10, 0.8);
       border: 1px solid #333;
       padding: 12px;
+      backdrop-filter: blur(2px);
     }
     h1 {
       font-size: 15px;
@@ -36,7 +44,7 @@
     }
     .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 10px; }
     .item {
-      background: #151515;
+      background: rgba(21, 21, 21, 0.85);
       border: 1px solid #2a2a2a;
       padding: 6px;
       text-align: center;
@@ -48,9 +56,9 @@
   </style>
 </head>
 <body>
-  <div class="topbar">AVIF Gallery</div>
+  <div class="topbar">lz4 Gallery</div>
   <div class="container">
-    <h1>Image List</h1>
+    <h1>Avatars</h1>
     <div class="grid" id="gallery">Loading...</div>
   </div>
 
