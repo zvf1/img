@@ -2,43 +2,57 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <title>lz4 Gallery</title>
+  <title>AVIF Gallery</title>
   <style>
     html, body {
       margin: 0;
       padding: 0;
-      min-height: 100%;
+      background: #000;
+      color: #ccc;
+      font-family: Verdana, Arial, sans-serif;
+      font-size: 12px;
     }
-    body {
-      font-family: sans-serif;
+    .topbar {
+      background: #111;
+      border-bottom: 2px solid #333;
+      padding: 8px 12px;
+      font-size: 13px;
+      font-weight: bold;
       color: #eee;
-      padding: 20px;
-      background-image: url("https://zvf1.github.io/img/bg.avif");
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      background-attachment: fixed;
-      box-sizing: border-box;
+    }
+    .container {
+      max-width: 1000px;
+      margin: 16px auto;
+      background: #0a0a0a;
+      border: 1px solid #333;
+      padding: 12px;
     }
     h1 {
-      text-shadow: 0 1px 4px rgba(0,0,0,0.8);
+      font-size: 15px;
+      color: #fff;
+      border-bottom: 1px solid #333;
+      padding-bottom: 6px;
+      margin-top: 0;
     }
-    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 16px; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 10px; }
     .item {
-      background: rgba(20, 20, 20, 0.75);
-      border-radius: 8px;
-      padding: 8px;
+      background: #151515;
+      border: 1px solid #2a2a2a;
+      padding: 6px;
       text-align: center;
-      backdrop-filter: blur(2px);
     }
-    .item img { max-width: 100%; border-radius: 4px; }
-    .item p { font-size: 12px; word-break: break-all; margin: 6px 0 0; }
-    .item .size { font-size: 11px; color: #ccc; margin-top: 2px; }
+    .item img { max-width: 100%; border: 1px solid #333; }
+    .item p { font-size: 11px; color: #6cf; word-break: break-all; margin: 4px 0 0; }
+    .item .size { font-size: 10px; color: #888; margin-top: 2px; }
+    a { color: #6cf; }
   </style>
 </head>
 <body>
-  <h1>lz4 Gallery</h1>
-  <div class="grid" id="gallery">Loading...</div>
+  <div class="topbar">AVIF Gallery</div>
+  <div class="container">
+    <h1>Image List</h1>
+    <div class="grid" id="gallery">Loading...</div>
+  </div>
 
   <script>
     const owner = "zvf1";
